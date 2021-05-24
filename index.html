@@ -9,18 +9,19 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 <script src="js/main.js" defer></script>
+<link rel="stylesheet" href="css/main.css">
 <title>F1 standings</title>
 </head>
 <body>
     <div class="container" >
-        <div class="row" id="Nav" style="background-color: rgb(236, 236, 77);">
-            <div class="col">
+        <div class="row" id="Nav">
+            <div class="col text-center">
                 <H1>F1 Racing Standings</H1></div>
         </div>
         <!-- forms -->
-        <div class="row" id="form" style="background-color: beige;">
-            <div class="col">
-                <form name="Data" id="FormData">
+        <div class="row" id="form" >
+            <div class="col d-flex justify-content-center">
+                <form name="Data" class="d-flex" id="FormData">
                     <!-- year -->
                     <label for="year">Year</label>
                     <input type="text" name="year" id="year">
@@ -28,13 +29,13 @@
                     <label for="round">Round</label>
                     <input type="text" name="round" id="round">
                     <!-- submit -->
-                    <button type="submit" id="submitButton" onclick="load_data()" >Search</button>
+                    <button type="submit" id="submitButton" onclick="load_data()">Search</button>
                 </form>
             </div>
         </div>
 
         <!-- table -->
-        <div class="row" id="body" style="background-color: rgb(208, 96, 252);">
+        <div class="row" id="body" >
             <table id="racer-data" >
                 <tr>
                   <th>Position</th>
@@ -43,6 +44,7 @@
                   <th>Sponsor</th>
                   <th>Points</th>
                 </tr>
+            </table>
         </div>
 
     </div>

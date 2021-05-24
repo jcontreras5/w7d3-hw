@@ -17,10 +17,29 @@ const DOM_ELEMENTS = {
     racer_data:'#racer-data'
 }
 
+// //Delete DOM element
+// const delete_DOM=()=>{
+//   let x =document.getElementsByClassName("racers");
+//   console.log(x)
+//   if(x){
+//       x.forEach(element => {
+//         element.remove()
+//       });
+//   }else{
+//     //pass
+//   }
+// }
 
-// Creation of Row
+// Creation of Table Row
 const create_table_row = (pos,name,nationality,sponsor,points) => {
-    const row= `<tr><td>${pos}</td> <td>${name}</td> <td>${nationality}</td> <td>${sponsor}</td> <td>${points}</td></tr>`;
+    const row= `
+        <tr class="racers">
+            <td>${pos}</td>
+            <td>${name}</td>
+            <td>${nationality}</td>
+            <td>${sponsor}</td>
+            <td>${points}</td>
+        </tr>`;
     document.querySelector(DOM_ELEMENTS.racer_data).insertAdjacentHTML('beforeend',row) // allows search where you can choose where to inject html elem  above
 }
 
@@ -29,14 +48,12 @@ const load_data= async()=>{
     console.log('three')
     const racers_data= await getData(); //waiting for data, once it gets data it will use response.data return from getData()
     let racers = racers_data.MRData.StandingsTable.StandingsLists[0].DriverStandings.slice(0,10)
+    delete_DOM()
     racers.forEach(element=>create_table_row(element.position,(element.Driver.givenName+" "+element.Driver.familyName),element.Driver.nationality,element.Constructors[0].name,element.points)) // data will be array, so we need to pull id,name from each element, pass those into create_list above
     
 }
 
 //add event listener
 form.addEventListener('submit',(event)=>{
-    console.log('one')
-    event.preventDefault()
-
-    
+    event.preventDefault()  
 })
